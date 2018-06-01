@@ -16,3 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// show developer name
+Route::get('/devname', function(){
+  return "Parham Fallah";
+});
+
+// show today
+Route::get('/date', function(){
+  $date =  getdate();
+  return "<h3>today is <b>" . $date['weekday'] . "</b></h3> " . $date['mday'] . "/" . $date['mon'] . "/" . $date['year'] ;
+});
+
+// show valid names that initialize in UsersController, showValidNames funciton
+Route::get('/vname' , 'UsersController@showValidNames');

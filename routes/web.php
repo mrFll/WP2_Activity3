@@ -42,5 +42,5 @@ Route::get('/dashboard', function(){
 // redirect redash url to dashboard url
 Route::redirect('/redash', 'dashboard', 301);
 
-
-Route::get('/home', 'UsersController@home');
+// route pointed to controller class
+Route::get('/user', 'UsersController@user');
