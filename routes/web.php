@@ -44,3 +44,8 @@ Route::redirect('/redash', 'dashboard', 301);
 
 // route pointed to controller class
 Route::get('/user', 'UsersController@user');
+
+//---------------------- Activity 4 ------------------------
+
+// ex 1 - show name from query string
+Route::get('/getname', 'UsersController@showName');
