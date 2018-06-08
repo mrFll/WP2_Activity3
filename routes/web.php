@@ -11,10 +11,13 @@
 |
 */
 
+/*
 // root route
 Route::get('/', function () {
-    return view('welcome');
+    return view('mainTemplate');
 })->name('root');
+
+
 
 // view route
 Route::view('/profile', 'profile')->name('profile');
@@ -44,8 +47,13 @@ Route::redirect('/redash', 'dashboard', 301);
 
 // route pointed to controller class
 Route::get('/user', 'UsersController@user');
-
+*/
 //---------------------- Activity 4 ------------------------
 
 // ex 1 - show name from query string
 Route::get('/getname', 'UsersController@showName');
+
+// ex 2 - main page template
+Route::get('/', 'Controller@homePage');
+
+Route::get('/number', 'Controller@numbers');

@@ -25,12 +25,12 @@ class UsersController extends Controller
     */
     public function showName(Request $request){
       $name = $request->input('name');
-      
+
       // check if user doesn't enter the name in url
       if($name == null){
-        return "please send your name by url like: .../getname?name=parham";
+        return view('showName', ['name' => 'please send your name by url like: .../getname?name=parham']);
       }else{
-        return view('exone', ['name' => $name]);
+        return view('showName', ['name' => $name]);
       }
 
     }

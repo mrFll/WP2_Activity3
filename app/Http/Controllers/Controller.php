@@ -6,8 +6,28 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    /**
+    * generate home page
+    */
+    public function homePage(){
+      return view('welcome');
+    }
+
+    public function numbers(Request $request){
+
+      $number = $request->input('number');
+      if($number == null){
+        return view('numbers', ['number' => 'please send your number by url like: .../number?number=12']);
+      }else{
+        return view('numbers', ['number' => $number]);
+      }
+    }
+
 }
