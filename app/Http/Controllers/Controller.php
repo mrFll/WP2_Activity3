@@ -20,6 +20,9 @@ class Controller extends BaseController
       return view('welcome');
     }
 
+    /**
+    * numbers page
+    */
     public function numbers(Request $request){
 
       $number = $request->input('number');
@@ -30,4 +33,39 @@ class Controller extends BaseController
       }
     }
 
+    /**
+    * add new week
+    */
+    public function addNewWeek(){
+      return view('addNewWeek');
+    }
+
+    /**
+    * get data from user by addNewWeek view by POST method and
+    * if user send data, show it in *** view
+    */
+    public function handleNewWeekData(Request $request){
+
+      // initialize variables with data that posted to server
+      $start = $request->input('starting_date');
+      $end = $request->input('ending_date');
+      $numb = $request->input('week_numb');
+      $titles = explode("\n",$request->input('week_titles'));
+
+      //validation data
+      $validatedData = $request->validate([
+        'starting_date' => 'required|date',
+        'ending_date' => 'required|date',
+        'week_numb' => 'bail|required|numeric',
+        'week_titles' => 'required',
+
+      ]);
+
+
+      return view('showNewWeek',[
+        'start' => $start,
+        'end' => $end,
+        'numb' => $numb,
+        'titles' => $titles]);
+    }
 }

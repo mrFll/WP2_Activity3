@@ -57,3 +57,6 @@ Route::get('/getname', 'UsersController@showName');
 Route::get('/', 'Controller@homePage');
 
 Route::get('/number', 'Controller@numbers');
+
+Route::get('/course/add', 'Controller@addNewWeek');
+Route::post('/course/add', 'Controller@handleNewWeekData');

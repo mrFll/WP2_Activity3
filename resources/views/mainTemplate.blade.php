@@ -98,7 +98,7 @@
         <ul id="header_list">
           <li><a href="/">Home</a></li>
           <li><a href="/number">Numbers</a></li>
-          <li><a href="#dashboard">Dash</a></li>
+          <li><a href="/course/add">add course</a></li>
           <li><a href="/getname">Name</a></li>
         </ul>
     </div>
@@ -111,7 +111,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/number">Numbers</a></li>
-          <li><a href="#dashboard">Dash</a></li>
+          <li><a href="/course/add">add course</a></li>
           <li><a href="/getname">Name</a></li>
         </ul>
       </div>
