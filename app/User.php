@@ -26,4 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // CREATE TABLE users (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, password VARCHAR(255), remember_token VARCHAR(100), updated_at DATE, created_at DATE);
 }

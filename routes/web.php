@@ -58,5 +58,23 @@ Route::get('/', 'Controller@homePage');
 
 Route::get('/number', 'Controller@numbers');
 
+// add new course
 Route::get('/course/add', 'Controller@addNewWeek');
 Route::post('/course/add', 'Controller@handleNewWeekData');
+
+// sign in Route
+Route::get('/signin', 'UsersController@signInView');
+Route::post('/signin', 'UsersController@signIn');
+// sign up Route
+Route::get('signup' , 'UsersController@signUpView');
+Route::post('signup' , 'UsersController@signUp');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout' , function (){
+    \Illuminate\Support\Facades\Auth::logout();
+   return redirect('/');
+});

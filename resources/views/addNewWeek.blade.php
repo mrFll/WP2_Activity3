@@ -80,8 +80,7 @@
     */
     function sendDate(){
       if(checkData()){
-        console.log(document.getElementById('weekInfoForm'));
-        //document.getElementById('weekInfoForm').submit();
+        document.getElementById('weekInfoForm').submit();
       }
     }
 

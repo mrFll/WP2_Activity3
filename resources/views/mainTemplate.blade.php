@@ -1,94 +1,116 @@
 
+<?php
+
+    use Illuminate\Support\Facades\Auth;
+    $user = Auth::user();
+
+
+?>
  <!DOCTYPE html>
  <html>
   <head>
     <title>@yield('title')</title>
   </head>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css" />
   <style>
+      body {
+          background-color: #c9c9c9;
+          color: #e3e3e3;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 100;
+          margin: 0px;
+      }
 
-    body {
-        background-color: #c9c9c9;
-        color: #e3e3e3;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 100;
+      /* ***************** header ***************** */
+      #header_div li{
+        float: left;
+      }
+
+      #header_div li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 0px  40px;
+          text-decoration: none;
+          font-size: x-large;
+      }
+
+      #header_div li a:hover {
+        background-color: #fb70709e;
+      }
+
+      #header_div ul{
+        list-style-type: none;
+        overflow: hidden;
+        background-color: #ff3a3a9e;
+        display: flow-root;
+        padding: 2px;
         margin: 0px;
-    }
+      }
 
-    /* ***************** header ***************** */
-    #header_div li{
-      float: left;
-    }
-
-    #header_div li a {
+      #signInlink{
+        color: black;
         display: block;
         color: white;
         text-align: center;
-        padding: 0px  40px;
+        padding: 0px  10px;
         text-decoration: none;
         font-size: x-large;
-    }
+        float: right;
 
-    #header_div li a:hover {
-      background-color: #fb70709e;
-    }
+      }
 
-    #header_div ul{
-      list-style-type: none;
-      overflow: hidden;
-      background-color: #ff3a3a9e;
-      display: flow-root;
-      padding: 2px;
-      margin: 0px;
-    }
+      #signInlink :hover {
+        background-color: #fb70709e;
+      }
 
-    /* ***************** content ***************** */
-    #content_div{
-      overflow: hidden;
-    }
+      /* ***************** content ***************** */
+      #content_div{
+        overflow: hidden;
+      }
 
-    /* **** left menu **** */
-    #content_left_div{
-      float: left;
-      padding: 1%;
-      background-color: #7756cc;
-      color: white;
-    }
+      /* **** left menu **** */
+      #content_left_div{
+        float: left;
+        padding: 1%;
+        background-color: #7756cc;
+        color: white;
+      }
 
-    #content_left_div li a{
-      color: white;
-      text-align: center;
-      padding: 2px 0px;
-      text-decoration: none;
-    }
+      #content_left_div li a{
+        color: white;
+        text-align: center;
+        padding: 2px 0px;
+        text-decoration: none;
+      }
 
-    #content_left_div li a:hover{
-      color: #fcff75;
-    }
+      #content_left_div li a:hover{
+        color: #fcff75;
+      }
 
-    #content_left_div li{
-      padding: 2px 0px;
-    }
+      #content_left_div li{
+        padding: 2px 0px;
+      }
 
-    #content_left_div ul{
-      list-style-type: none;
-      padding: 1px;
-    }
+      #content_left_div ul{
+        list-style-type: none;
+        padding: 1px;
+      }
 
-    /* **** main content **** */
-    #content_right_div{
-      float: left;
-      padding: 1%;
-    }
+      /* **** main content **** */
+      #content_right_div{
+        float: left;
+        padding: 1%;
+        color: black;
+      }
 
-    /* ***************** fotter ***************** */
-    #fotter_div{
-      padding: 1% 5%;
-      margin: 0px;
-      background-color: #89bdd3;
-    }
+      /* ***************** fotter ***************** */
+      #fotter_div{
+        padding: 1% 5%;
+        margin: 0px;
+        background-color: #89bdd3;
+      }
 
   </style>
 
@@ -100,6 +122,14 @@
           <li><a href="/number">Numbers</a></li>
           <li><a href="/course/add">add course</a></li>
           <li><a href="/getname">Name</a></li>
+
+            <?php
+                if($user == null){
+                    echo "<a href='/login' id='signInlink'>Login</a> <a href='/register' id='signInlink'>Register</a>";
+                }else{
+                    echo "<a href='/logout' id='signInlink'>Logout</a>" . "<p  id='signInlink' style='margin: 0px; color: black;'>". $user["name"] . "</p>";
+                }
+            ?>
         </ul>
     </div>
 
@@ -137,5 +167,7 @@
     </div>
 
   </body>
+  @section('scrpt')
+  @show
 
  </html>
