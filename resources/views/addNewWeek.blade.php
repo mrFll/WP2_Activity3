@@ -5,15 +5,13 @@
 
 @section('content')
   @parent
-
-
       <fieldset style="font-size: xx-large; color: black;">
           <legend>add new week:</legend>
           <form method="POST" action="/course/add" id="weekInfoForm">
           <label for="start">starting date:</label>
           <input type="date" id="start" name="starting_date" onchange="focusChangeBorder('start')"><br><br>
 
-          <labeln for="end">ending date:</label>
+          <label for="end">ending date:</label>
           <input type="date" id="end" name="ending_date" onchange="focusChangeBorder('end')"><br><br>
 
           <label for="numb">week number:</label>

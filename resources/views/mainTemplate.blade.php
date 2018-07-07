@@ -119,14 +119,15 @@
     <div class="pageRow" id="header_div">
         <ul id="header_list">
           <li><a href="/">Home</a></li>
-          <li><a href="/number">Numbers</a></li>
           <li><a href="/course/add">add course</a></li>
-          <li><a href="/getname">Name</a></li>
+
 
             <?php
                 if($user == null){
                     echo "<a href='/login' id='signInlink'>Login</a> <a href='/register' id='signInlink'>Register</a>";
                 }else{
+                    echo "<li><a href='/product'>product</a></li>";
+                    echo "<li><a href='/product/add'>add product</a></li>";
                     echo "<a href='/logout' id='signInlink'>Logout</a>" . "<p  id='signInlink' style='margin: 0px; color: black;'>". $user["name"] . "</p>";
                 }
             ?>
@@ -139,10 +140,16 @@
       <!--************ left menu ************-->
       <div id="content_left_div">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/number">Numbers</a></li>
-          <li><a href="/course/add">add course</a></li>
-          <li><a href="/getname">Name</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/course/add">add course</a></li>
+
+            <?php
+            if($user != null){
+                echo "<li><a href='/product'>product</a></li>";
+                echo "<li><a href='/product/add'>add product</a></li>";
+            }
+            ?>
+
         </ul>
       </div>
 

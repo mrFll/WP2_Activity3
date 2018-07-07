@@ -50,30 +50,26 @@ Route::get('/user', 'UsersController@user');
 */
 //---------------------- Activity 4 ------------------------
 
-// ex 1 - show name from query string
-Route::get('/getname', 'UsersController@showName');
+
+
 
 // ex 2 - main page template
 Route::get('/', 'Controller@homePage');
 
-Route::get('/number', 'Controller@numbers');
+// product routes
+Route::get('/product', 'Controller@showProducts');
+Route::get('/product/add', 'Controller@addProduct');
+Route::post('/product/add', 'Controller@handleNewProduct');
 
 // add new course
 Route::get('/course/add', 'Controller@addNewWeek');
 Route::post('/course/add', 'Controller@handleNewWeekData');
 
-// sign in Route
-Route::get('/signin', 'UsersController@signInView');
-Route::post('/signin', 'UsersController@signIn');
-// sign up Route
-Route::get('signup' , 'UsersController@signUpView');
-Route::post('signup' , 'UsersController@signUp');
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
+// logging out route -> redirect to home
 Route::get('/logout' , function (){
     \Illuminate\Support\Facades\Auth::logout();
    return redirect('/');
